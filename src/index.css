@@ -2,8 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Basic root background overrides */
 @layer components {
-  :root {
-    @apply bg-cyan-200;
-  }
+  /* :root { */
+  /*   @apply bg-stone-900 min-h-full flex flex-col; */
+  /* } */
+
+  /* body { */
+  /*   @apply grow flex flex-col; */
+  /* } */
+
+  /* #root { */
+  /*   @apply grow m-0 p-0 flex flex-row justify-start items-stretch; */
+  /* } */
+
+  /* @media (min-width: 640px) { */
+  /*   :root { */
+  /*     @apply font-bold; */
+  /*   } */
+  /* } */
 }
