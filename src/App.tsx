@@ -1,7 +1,7 @@
 // import circleQuestion from './assets/circle-question.svg'
 
 import iro from "@jaames/iro"
-import { useRef } from "react"
+import { MouseEvent, useRef } from "react"
 
 function PaletteHeader() {
   return <h1 className="text-3xl text-white">Palette</h1>
@@ -17,15 +17,41 @@ function PaletteInfo() {
 
 function PaletteColorBox() {
   const myRef = useRef<HTMLDivElement>(null)
+  const visible = useRef(false)
 
-  const handleClick = () => {
+  const handleClick = (event: MouseEvent) => {
+    if (visible.current) {
+      return
+    }
+    visible.current = true
+    const x = event.clientX, y = event.clientY
+    myRef.current!.style.left = `${x}px`
+    myRef.current!.style.top = `${y}px`
     iro.ColorPicker(myRef.current!, {
-      width: 100,
+      width: 300,
+      borderWidth: 1,
+      handleRadius: 10,
+      layout: [
+        {
+          component: iro.ui.Box,
+        },
+        {
+          component: iro.ui.Slider,
+          options: {
+            sliderType: 'hue'
+          }
+        },
+      ]
     });
   }
 
   return (
-    <div ref={myRef} className='min-w-full h-16 rounded-sm bg-stone-500' onClick={handleClick}></div>
+    <>
+      <div>
+        <div className='min-w-full h-16 rounded-sm bg-stone-500' onClick={handleClick}></div>
+        <div ref={myRef} className='fixed left-12 top-24'></div>
+      </div>
+    </>
   )
 }
 
