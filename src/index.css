@@ -4,9 +4,9 @@
 
 /* Basic root background overrides */
 @layer components {
-  /* :root { */
-  /*   @apply bg-stone-900 min-h-full flex flex-col; */
-  /* } */
+  :root {
+    @apply bg-stone-900 min-h-full flex flex-col;
+  }
 
   /* body { */
   /*   @apply grow flex flex-col; */

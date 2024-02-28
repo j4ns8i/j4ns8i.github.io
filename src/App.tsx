@@ -9,7 +9,7 @@ function PaletteHeader() {
 
 function PaletteInfo() {
   return (
-    <div className="w-5 h-5 rounded-full flex justify-center items-center border-2 border-stone-500">
+    <div className="size-5 rounded-full flex justify-center items-center border-2 border-stone-500">
       <p className="text-stone-500">?</p>
     </div>
   )
@@ -48,59 +48,54 @@ function PaletteColorBox() {
   return (
     <>
       <div>
-        <div className='min-w-full h-16 rounded-sm bg-stone-500' onClick={handleClick}></div>
-        <div ref={myRef} className='fixed left-12 top-24'></div>
+        <div className='h-16 rounded-sm bg-stone-500' onClick={handleClick}></div>
+        <div ref={myRef} className='fixed'></div>
       </div>
     </>
   )
 }
 
-function PaletteGrid() {
+function PaletteMix() {
   return (
-    <div className="grid grid-cols-2 gap-2 min-w-full mt-6">
-      <PaletteColorBox />
-      <PaletteColorBox />
-      <PaletteColorBox />
-      <PaletteColorBox />
-      <PaletteColorBox />
-      <PaletteColorBox />
-      <PaletteColorBox />
-      <PaletteColorBox />
+    <div className="flex flex-1 gap-2 grow justify-center items-center">
+      <div className="flex flex-col place-items-center">
+        <PaletteHeader />
+        <PaletteInfo />
+      </div>
+      <div className="grid grow gap-2 grid-cols-8">
+        <PaletteColorBox />
+        <PaletteColorBox />
+        <PaletteColorBox />
+        <PaletteColorBox />
+        <PaletteColorBox />
+        <PaletteColorBox />
+        <PaletteColorBox />
+        <PaletteColorBox />
+      </div>
     </div>
   )
 }
 
 function PaletteWindow() {
   return (
-    <div className="bg-stone-900 p-2 w-64 flex flex-col items-center">
-      <PaletteHeader />
-      <PaletteInfo />
-      <PaletteGrid />
-    </div>
-  )
-}
-
-function Frame({ children }: { children: React.ReactNode }) {
-  return (
-    // TODO: h-screen breaks if palette extends below initial viewport, so you
-    // might need to revert to the initial implementation
-    <div className="flex h-screen bg-stone-900 divide-x divide-stone-800">
-      {children}
+    <div className="bg-stone-900 p-2 flex items-center">
+      <PaletteMix />
     </div>
   )
 }
 
 function Preview() {
   return <div className="grow bg-stone-900">
+  code here
   </div>
 }
 
 function App() {
   return (
-    <Frame>
+    <div className="flex flex-col">
       <PaletteWindow />
       <Preview />
-    </Frame>
+    </div>
   )
 }
 
