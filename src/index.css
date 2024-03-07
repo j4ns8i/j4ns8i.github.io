@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'VT323';
+  src: url('/fonts/VT323/VT323-Regular.ttf');
+}
+
 /* Basic root background overrides */
 @layer components {
   :root {
