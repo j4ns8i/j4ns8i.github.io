@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 // Adapted from https://github.com/omgovich/react-colorful "Popover picker" recipe
 
 // Improved version of https://usehooks.com/useOnClickOutside/
-export default function useClickOutside<T extends HTMLElement>(ref: React.RefObject<T>, handler: any) {
+export default function useClickOutside<T extends HTMLElement>(ref: React.RefObject<T>, handler: () => void) {
   useEffect(() => {
     let startedInside: boolean | null = false;
     let startedWhenMounted: T | null = null;
@@ -14,7 +14,7 @@ export default function useClickOutside<T extends HTMLElement>(ref: React.RefObj
       // Do nothing if clicking ref's element or descendent elements
       if (!ref.current || ref.current.contains(event.target as T)) return;
 
-      handler(event);
+      handler();
     };
 
     const validateEventStart: EventListener = (event: Event) => {
@@ -32,4 +32,4 @@ export default function useClickOutside<T extends HTMLElement>(ref: React.RefObj
       document.removeEventListener("click", listener);
     };
   }, [ref, handler]);
-};
+}

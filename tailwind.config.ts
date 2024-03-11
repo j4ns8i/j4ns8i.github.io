@@ -1,5 +1,6 @@
-import type { Config } from 'tailwindcss'
-import { fontFamily } from 'tailwindcss/defaultTheme'
+import type { Config } from 'tailwindcss';
+import { fontFamily } from 'tailwindcss/defaultTheme';
+import theme from './src/lib/theme';
 
 export default {
   content: [
@@ -9,25 +10,25 @@ export default {
   theme: {
     extend: {
       colors: {
-        'cterm-0': '#15171d',
-        'cterm-1': '#d4737f',
-        'cterm-2': '#90b782',
-        'cterm-3': '#ffcda4',
-        'cterm-4': '#86a5be',
-        'cterm-5': '#8f729a',
-        'cterm-6': '#76af9d',
-        'cterm-7': '#5d6068',
-        'cterm-8': '#3b3e46',
-        'cterm-9': '#c45361',
-        'cterm-10': '#607f55',
-        'cterm-11': '#d6ae86',
-        'cterm-12': '#4b799e',
-        'cterm-13': '#9b68b3',
-        'cterm-14': '#487e6d',
-        'cterm-15': '#c7d0e0',
+        'cterm-0': theme.colors.cterm0,
+        'cterm-1': theme.colors.cterm1,
+        'cterm-2': theme.colors.cterm2,
+        'cterm-3': theme.colors.cterm3,
+        'cterm-4': theme.colors.cterm4,
+        'cterm-5': theme.colors.cterm5,
+        'cterm-6': theme.colors.cterm6,
+        'cterm-7': theme.colors.cterm7,
+        'cterm-8': theme.colors.cterm8,
+        'cterm-9': theme.colors.cterm9,
+        'cterm-10': theme.colors.cterm10,
+        'cterm-11': theme.colors.cterm11,
+        'cterm-12': theme.colors.cterm12,
+        'cterm-13': theme.colors.cterm13,
+        'cterm-14': theme.colors.cterm14,
+        'cterm-15': theme.colors.cterm15,
       },
       fontFamily: {
-        theme_mono: ['VT323', ...fontFamily.mono]
+        "theme-mono": ['VT323', ...fontFamily.mono]
       },
     },
   },
