@@ -12,6 +12,11 @@ function PaletteColorBox({ bgColor }: { bgColor: string }) {
   const openIfNot = useCallback(() => !isOpen && setOpen(true), [isOpen]);
   useClickOutside(pickerRef, close);
 
+  const changeColors = (color: string) => {
+    setColor(color);
+    document.documentElement.style.setProperty('--color-cterm-1', color);
+  }
+
   return (
     <>
       <div
@@ -25,7 +30,7 @@ function PaletteColorBox({ bgColor }: { bgColor: string }) {
           // element, except for when its bounds are outside the viewport. In
           // that case, it should be repositioned to fit within the viewport.
           <div className="relative top-1/2 left-1/2" ref={pickerRef}>
-            <HexColorPicker color={color} onChange={setColor} />
+            <HexColorPicker color={color} onChange={changeColors} />
           </div>
         )}
       </div>
